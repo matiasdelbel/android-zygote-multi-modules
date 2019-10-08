@@ -1,0 +1,9 @@
+apply plugin: 'com.android.library'
+apply from: "$rootDir/.dna/module/type/module-kotlin-android.gradle"
+apply from: "$rootDir/.dna/module/keychain.gradle"
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(':usecases')
+}

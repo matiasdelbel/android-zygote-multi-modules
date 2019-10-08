@@ -1,0 +1,13 @@
+subprojects {
+    if (name == 'app') {
+        apply from: "$rootDir/.dna/module/layer/module-app.gradle"
+    } else if (name == 'domain') {
+        apply from: "$rootDir/.dna/module/layer/module-domain.gradle"
+    } else if (name == 'gateway') {
+        apply from: "$rootDir/.dna/module/layer/module-gateway.gradle"
+    } else if (name == 'presentation') {
+        apply from: "$rootDir/.dna/module/layer/module-presentation.gradle"
+    } else if (name == 'usecases') {
+        apply from: "$rootDir/.dna/module/layer/module-usecases.gradle"
+    }
+}

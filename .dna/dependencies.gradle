@@ -1,0 +1,22 @@
+ext {
+
+    jUnit = "junit:junit:4.12"
+    mockito = "com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0"
+    truth = "com.google.truth:truth:1.0"
+    testCore = "android.arch.core:core-testing:1.1.1"
+
+    pluginDependencies = [
+            gradle: "com.android.tools.build:gradle:3.4.2",
+            kotlin: "org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.41",
+            kLint : "org.jlleitschuh.gradle:ktlint-gradle:8.2.0",
+            jacoco: "com.dicedmelon.gradle:jacoco-android:0.1.4"
+    ]
+
+    kotlinDependencies = [
+            stdlibJdk7: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.41"
+    ]
+
+    testDependencies = [jUnit, mockito, truth]
+    
+    testDependenciesAndroid = [testCore]
+}

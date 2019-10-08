@@ -1,0 +1,10 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android-extensions'
+
+apply from: "$rootDir/.dna/module/type/module-kotlin-android.gradle"
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(':usecases')
+}

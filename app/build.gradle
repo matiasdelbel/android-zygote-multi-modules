@@ -1,0 +1,3 @@
+apply plugin: 'kotlin-android-extensions'
+
+android.defaultConfig.applicationId = "com.mdelbel.android.zygote.testapp"

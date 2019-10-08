@@ -1,0 +1,8 @@
+apply plugin: 'com.android.library'
+apply from: "$rootDir/.dna/module/type/module-kotlin-android.gradle"
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api project(':domain')
+}

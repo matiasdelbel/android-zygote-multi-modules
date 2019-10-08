@@ -1,0 +1,17 @@
+def obtainValue = { properties, key -> properties.getProperty(key) }
+
+def obtainProperties = { name ->
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file(name).newDataInputStream())
+
+    return properties
+}
+
+ext.obtainFromPropertiesOrEnvAsFallback = { name, key, envKey ->
+    try {
+        Properties properties = obtainProperties(name)
+        return obtainValue(properties, key)
+    } catch (FileNotFoundException) {
+        return System.getenv(envKey)
+    }
+}
