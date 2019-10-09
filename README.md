@@ -1,4 +1,4 @@
-# Zygote for an Android Project
+# Zygote for a Multi Modules Android Project
 
 ## Prerequisites
 - Have an account on Github
@@ -28,8 +28,11 @@ In this template, you'll find a basic configuration, for both TravisCI and Circl
 ## What will you find on this zygote?
 Here you'll find an Android template project with some basic configuration.
 
-The project is divided into 5 modules: The main app and 4 libraries: domain, use cases, repository, and presentation.
-Each module represents a layer on the Clean Architecture model, and have an only responsibility:
+The project has one main app and 4 folders (one for each layer: domain, use cases, repository, and presentation).
+Inside this folders, you'll find two libraries (featureA and featureB) that represent and example of the implementation
+of one feature on that particular module.
+
+Each folder represents a layer on the Clean Architecture model, and have an only responsibility:
 - Domain: In here you have to put your business objects.
 - Use Cases: Represent actions that the app can execute against your business.
 - Gateway: To obtain and share data with another application.
@@ -37,6 +40,6 @@ Each module represents a layer on the Clean Architecture model, and have an only
 
 All of the modules have Kotlin support. It is important to notice, that `domain` is a pure kotlin module.
 
-Also, this project has a basic configuration with Travis, so when you turn on your project on the CI, we automatic start to create reports.
+Also, this project has a basic configuration with Travis/Circle, so when you turn on your project on the CI, we automatic start to create reports.
 We run some static code analysis tools, like kLint. Also, we run all sets of tests and post their coverage on CodeCov.
 Do not forget to update this README with your badge from TravisCI and CodeCov

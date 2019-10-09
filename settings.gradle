@@ -1,1 +1,13 @@
-include ':app', ':domain', ':usecases', ':presentation', ':gateway'
+include ':app'
+
+include ':domain:featureA'
+include ':domain:featureB'
+
+include ':usecases:featureA'
+include ':usecases:featureB'
+
+include ':presentation:featureA'
+include ':presentation:featureB'
+
+include ':gateway:featureA'
+include ':gateway:featureB'

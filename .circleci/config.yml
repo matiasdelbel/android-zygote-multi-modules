@@ -23,36 +23,68 @@ jobs:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "presentation/build.gradle" }}
 
       - run:
-          name: Run Domain Module Unit Tests
-          command: ./gradlew :domain:test
+          name: Run FeatureA Domain Module Unit Tests
+          command: ./gradlew :domain:featureA:test
       - store_artifacts:
-          path: domain/build/reports
+          path: domain/featureA/build/reports
       - store_test_results:
-          path: domain/build/test-results
+          path: domain/featureA/build/test-results
 
       - run:
-          name: Run Gateway Module Unit Tests
-          command: ./gradlew :gateway:testDebugUnitTest
+          name: Run FeatureB Domain Module Unit Tests
+          command: ./gradlew :domain:featureB:test
       - store_artifacts:
-          path: gateway/build/reports
+          path: domain/featureB/build/reports
       - store_test_results:
-          path: gateway/build/test-results
+          path: domain/featureB/build/test-results
 
       - run:
-          name: Run Use Cases Module Unit Tests
-          command: ./gradlew :usecases:testDebugUnitTest
+          name: Run FeatureA Gateway Module Unit Tests
+          command: ./gradlew :gateway:featureA:testDebugUnitTest
       - store_artifacts:
-          path: usecases/build/reports
+          path: gateway/featureA/build/reports
       - store_test_results:
-          path: usecases/build/test-results
+          path: gateway/featureA/build/test-results
 
       - run:
-          name: Run Presentation Module Unit Tests
-          command: ./gradlew :presentation:testDebugUnitTest
+          name: Run FeatureB Gateway Module Unit Tests
+          command: ./gradlew :gateway:featureB:testDebugUnitTest
       - store_artifacts:
-          path: presentation/build/reports
+          path: gateway/featureB/build/reports
       - store_test_results:
-          path: presentation/build/test-results
+          path: gateway/featureB/build/test-results
+
+      - run:
+          name: Run FeatureA Use Cases Module Unit Tests
+          command: ./gradlew :usecases:featureA:testDebugUnitTest
+      - store_artifacts:
+          path: usecases/featureA/build/reports
+      - store_test_results:
+          path: usecases/featureA/build/test-results
+
+      - run:
+          name: Run FeatureB Use Cases Module Unit Tests
+          command: ./gradlew :usecases:featureB:testDebugUnitTest
+      - store_artifacts:
+          path: usecases/featureB/build/reports
+      - store_test_results:
+          path: usecases/featureB/build/test-results
+
+      - run:
+          name: Run FeatureA Presentation Module Unit Tests
+          command: ./gradlew :presentation:featureA:testDebugUnitTest
+      - store_artifacts:
+          path: presentation/featureA/build/reports
+      - store_test_results:
+          path: presentation/featureA/build/test-results
+
+      - run:
+          name: Run FeatureB Presentation Module Unit Tests
+          command: ./gradlew :presentation:featureB:testDebugUnitTest
+      - store_artifacts:
+          path: presentation/featureA/build/reports
+      - store_test_results:
+          path: presentation/featureA/build/test-results
 
       - run:
           name: Run Lint Test
