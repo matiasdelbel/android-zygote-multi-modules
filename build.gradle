@@ -1,5 +1,3 @@
-apply from: "$rootDir/.dna/module-configuration.gradle"
-
 buildscript {
     apply from: "$rootDir/.dna/dependencies.gradle"
     apply from: "$rootDir/dependencies.gradle"

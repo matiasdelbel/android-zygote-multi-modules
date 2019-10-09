@@ -1,0 +1,14 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android-extensions'
+
+apply from: "$rootDir/.dna/module/module-kotlin-android.gradle"
+
+android.resourcePrefix 'pst_featureA'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation presentation.appcompat
+
+    implementation project(':usecases:featureA')
+}

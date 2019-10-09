@@ -1,0 +1,10 @@
+apply plugin: 'com.android.library'
+apply from: "$rootDir/.dna/module/module-kotlin-android.gradle"
+
+android.resourcePrefix 'uc_featureB'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api project(':domain:featureB')
+}

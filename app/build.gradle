@@ -1,3 +1,19 @@
-apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.android.application'
+apply from: "$rootDir/.dna/module/module-kotlin-android.gradle"
 
 android.defaultConfig.applicationId = "com.mdelbel.android.zygote.testapp"
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation presentation.appcompat
+
+    implementation project(':usecases:featureA')
+    implementation project(':usecases:featureB')
+
+    implementation project(':presentation:featureA')
+    implementation project(':presentation:featureB')
+
+    implementation project(':gateway:featureA')
+    implementation project(':gateway:featureB')
+}

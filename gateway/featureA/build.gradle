@@ -1,0 +1,12 @@
+apply plugin: 'com.android.library'
+
+apply from: "$rootDir/.dna/module/module-kotlin-android.gradle"
+apply from: "$rootDir/.dna/keychain.gradle"
+
+android.resourcePrefix 'gw-featureA'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(':usecases:featureA')
+}
