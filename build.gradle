@@ -1,5 +1,4 @@
 buildscript {
-    apply from: "$rootDir/.dna/dependencies.gradle"
     apply from: "$rootDir/dependencies.gradle"
 
     repositories {
@@ -10,12 +9,10 @@ buildscript {
     }
 
     dependencies {
-        classpath pluginDependencies.gradle
+        classpath plugin.gradle
 
-        classpath pluginDependencies.kotlin
-        classpath pluginDependencies.kLint
-
-        classpath pluginDependencies.jacoco
+        classpath plugin.kotlin
+        classpath plugin.kLint
     }
 }
 

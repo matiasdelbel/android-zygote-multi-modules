@@ -1,0 +1,8 @@
+apply plugin: 'com.android.library'
+
+apply from: "$rootDir/.dna/module-kotlin-android.gradle"
+apply from: "$rootDir/.dna/keychain.gradle"
+
+dependencies {
+    implementation project(':featureA:domain')
+}

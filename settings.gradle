@@ -1,13 +1,10 @@
 include ':app'
 
-include ':domain:featureA'
-include ':domain:featureB'
+// Feature A
+include ':featureA:domain'
+include ':featureA:gateway'
+include ':featureA:presentation'
 
-include ':usecases:featureA'
-include ':usecases:featureB'
-
-include ':presentation:featureA'
-include ':presentation:featureB'
-
-include ':gateway:featureA'
-include ':gateway:featureB'
+project(':featureA:domain').projectDir = new File(rootDir, 'featureA/domain')
+project(':featureA:gateway').projectDir = new File(rootDir, 'featureA/gateway')
+project(':featureA:presentation').projectDir = new File(rootDir, 'featureA/presentation')

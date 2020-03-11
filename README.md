@@ -7,12 +7,10 @@
 
 ## How to use it?
 - Click the `Use this template` button and complete the flow until you create a new repository from this project.
-- Change the package name on the Android manifest of app, gateway, presentation and use cases modules.
+- Rename the featureA folder
+- Change the package name on the Android manifest of app, gateway, presentation and domain modules.
 Also, do not forget to rename the `applicationId` on the `build.gradle` file on the app module
 - Push changes in the repository that you've just created (do not forget of change this README).
-
-### CodeCov
-Modify the `codecov.yml` file to update the code coverage report.
 
 ### Continuous Integration
 In this template, you'll find a basic configuration, for both TravisCI and CircleCI. Choose whoever you like and follow the next steps:
@@ -27,19 +25,15 @@ In this template, you'll find a basic configuration, for both TravisCI and Circl
 
 ## What will you find on this zygote?
 Here you'll find an Android template project with some basic configuration.
-
-The project has one main app and 4 folders (one for each layer: domain, use cases, repository, and presentation).
-Inside this folders, you'll find two libraries (featureA and featureB) that represent and example of the implementation
-of one feature on that particular module.
+The project has one main app and 1 folder in wich you will find a expected architecture (3 layers: domain, gateway, and presentation).
 
 Each folder represents a layer on the Clean Architecture model, and have an only responsibility:
 - Domain: In here you have to put your business objects.
-- Use Cases: Represent actions that the app can execute against your business.
 - Gateway: To obtain and share data with another application.
 - Presentation: Determine how to present your business objects.
 
-All of the modules have Kotlin support. It is important to notice, that `domain` is a pure kotlin module.
+All of the modules have Kotlin support.
 
 Also, this project has a basic configuration with Travis/Circle, so when you turn on your project on the CI, we automatic start to create reports.
-We run some static code analysis tools, like kLint. Also, we run all sets of tests and post their coverage on CodeCov.
-Do not forget to update this README with your badge from TravisCI and CodeCov
+We run some static code analysis tools, like kLint.
+Do not forget to update this README with your badge from TravisCI or CircleCI.

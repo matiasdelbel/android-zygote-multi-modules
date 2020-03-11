@@ -1,0 +1,42 @@
+// Kotlin support
+apply plugin: 'kotlin-android'
+// KLint support
+apply plugin: "org.jlleitschuh.gradle.ktlint"
+
+android {
+    compileSdkVersion Integer.valueOf(project.property('compileAndroidSdkVersion'))
+
+    defaultConfig {
+
+        minSdkVersion Integer.valueOf(project.property('minAndroidSdkVersion'))
+        targetSdkVersion Integer.valueOf(project.property('targetAndroidSdkVersion'))
+
+        versionCode Integer.valueOf(project.property('versionCode'))
+        versionName versionName
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    // Kotlin sources support
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin/'
+        test.java.srcDirs += 'src/test/kotlin/'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation core.stdlibJdk7
+
+    testImplementation test.jUnit
+    testImplementation test.mockito
+    testImplementation test.truth
+}
+
+ktlint.android = true

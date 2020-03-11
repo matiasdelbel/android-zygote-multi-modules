@@ -1,0 +1,11 @@
+apply plugin: 'com.android.library'
+
+apply from: "$rootDir/.dna/module-kotlin-android.gradle"
+
+apply plugin: 'kotlin-android-extensions'
+
+android.resourcePrefix 'view_featureA'
+
+dependencies {
+    implementation project(':featureA:domain')
+}
