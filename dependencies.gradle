@@ -17,6 +17,13 @@ ext {
             truth  : "com.google.truth:truth:1.0"
     ]
 
+    androidTest = [
+            runner: "androidx.test:runner:1.2.0",
+            rules : "androidx.test:rules:1.2.0",
+            core  : "android.arch.core:core-testing:1.1.1",
+            truth : "com.google.truth:truth:1.0"
+    ]
+
     presentation = [
             appcompat: "androidx.appcompat:appcompat:1.1.0"
     ]
