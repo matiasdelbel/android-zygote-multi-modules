@@ -25,6 +25,7 @@ ext {
     ]
 
     presentation = [
-            appcompat: "androidx.appcompat:appcompat:1.1.0"
+            appcompat: "androidx.appcompat:appcompat:1.1.0",
+            material : "com.google.android.material:material:1.1.0"
     ]
 }
