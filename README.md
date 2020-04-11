@@ -2,27 +2,21 @@
 
 ## Prerequisites
 - Have an account on Github
-- Have an account on TravisCI or CircleCI associated with your Github user.
+- Have an account on CircleCI associated with your Github user.
 - Have an account on CodeCov associated with your Github user.
 
 ## How to use it?
-- Click the `Use this template` button and complete the flow until you create a new repository from this project.
+- Click the `Use this template` button and complete the flow until you create a new repository.
 - Rename the featureA folder
 - Change the package name on the Android manifest of the gateway, presentation and domain modules.
-- Change the package name on the Android manifest of app. Also, do not forget to rename the app package and the 
+- Change the package name on the Android manifest of app. Also, do not forget to rename the app package and the
 `applicationId` on the `build.gradle` file on the app module
-- Push changes in the repository that you've just created (do not forget of change this README).
+- Push changes in the repository that you've just created (do not forget of update this README).
 
-### Continuous Integration
-In this template, you'll find a basic configuration, for both TravisCI and CircleCI. Choose whoever you like and follow the next steps:
-
-##### TravisCI
-- Turn on your project on Travis `https://travis-ci.org/<User>/<project-name>/settings`
-- Remove the .circleci folder
-
-##### CircleCI
-- Find and turn on your project on Circle `https://circleci.com/add-projects/gh/<User>`
-- Remove the .travis.yml file
+## Continuous Integration
+This repository have a basic configuration to build your project on CircleCI. To start using it
+you need to turn on your project in [https://circleci.com/add-projects/gh/<User>](https://circleci.com/add-projects/gh/<User>)
+Edit the file `.circleci/config.yml` to customize your builds.
 
 ## What will you find on this zygote?
 Here you'll find an Android template project with some basic configuration.
@@ -32,9 +26,3 @@ Each folder represents a layer on the Clean Architecture model, and have an only
 - Domain: In here you have to put your business objects.
 - Gateway: To obtain and share data with another application.
 - Presentation: Determine how to present your business objects.
-
-All of the modules have Kotlin support.
-
-Also, this project has a basic configuration with Travis/Circle, so when you turn on your project on the CI, we automatic start to create reports.
-We run some static code analysis tools, like kLint.
-Do not forget to update this README with your badge from TravisCI or CircleCI.
