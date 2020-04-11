@@ -1,7 +1,12 @@
 apply plugin: 'com.android.application'
 apply from: "$rootDir/.dna/module-kotlin-android.gradle"
 
-android.defaultConfig.applicationId = "com.delbel.zygote.testapp"
+android {
+
+    defaultConfig.applicationId = "com.delbel.zygote.testapp"
+
+    viewBinding.enabled = true
+}
 
 dependencies {
     implementation project(':featureA:domain')
