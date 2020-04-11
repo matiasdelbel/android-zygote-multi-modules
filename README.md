@@ -8,8 +8,9 @@
 ## How to use it?
 - Click the `Use this template` button and complete the flow until you create a new repository from this project.
 - Rename the featureA folder
-- Change the package name on the Android manifest of app, gateway, presentation and domain modules.
-Also, do not forget to rename the `applicationId` on the `build.gradle` file on the app module
+- Change the package name on the Android manifest of the gateway, presentation and domain modules.
+- Change the package name on the Android manifest of app. Also, do not forget to rename the app package and the 
+`applicationId` on the `build.gradle` file on the app module
 - Push changes in the repository that you've just created (do not forget of change this README).
 
 ### Continuous Integration

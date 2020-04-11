@@ -11,6 +11,13 @@ ext {
             stdlibJdk7: "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.61"
     ]
 
+    injection = [
+            dagger         : "com.google.dagger:dagger:2.25.2",
+            daggerSupport  : "com.google.dagger:dagger-android-support:2.25.2",
+            daggerProcessor: "com.google.dagger:dagger-android-processor:2.25.2",
+            daggerCompiler : "com.google.dagger:dagger-compiler:2.25.2"
+    ]
+
     test = [
             jUnit  : "junit:junit:4.12",
             mockito: "com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0",
