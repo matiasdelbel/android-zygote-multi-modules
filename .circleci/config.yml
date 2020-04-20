@@ -23,31 +23,8 @@ jobs:
           key: jars-{{ checksum "build.gradle.kts" }}-{{ checksum  "app/build.gradle.kts" }}
 
       - run:
-          name: Run FeatureA Domain Module Unit Tests
-          command: ./gradlew :featureA:domain:test
-      - store_artifacts:
-          path: featureA/domain/build/reports
-      - store_test_results:
-          path: featureA/domain/build/test-results
-
+          name: Run Test with Coverage
+          command:  ./gradlew build && ./gradlew jacocoDebugReport
       - run:
-          name: Run FeatureA Gateway Module Unit Tests
-          command: ./gradlew :featureA:gateway:testDebugUnitTest
-      - store_artifacts:
-          path: featureA/gateway/build/reports
-      - store_test_results:
-          path: featureA/gateway/build/test-results
-
-      - run:
-          name: Run FeatureA Presentation Module Unit Tests
-          command: ./gradlew :featureA:presentation:testDebugUnitTest
-      - store_artifacts:
-          path: featureA/presentation/build/reports
-      - store_test_results:
-          path: featureA/presentation/build/test-results
-
-      - run:
-          name: Run Lint Test
-          command: ./gradlew lint
-      - store_artifacts:
-          path: lint/build/reports
+          name: Upload Coverage Results
+          command: bash <(curl -s https://codecov.io/bash)
