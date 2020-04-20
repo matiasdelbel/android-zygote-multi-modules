@@ -1,5 +1,14 @@
 # Zygote for a Multi Modules Android Project
 
+## What will you find on this project?
+Here you'll find an Android template project with some basic configuration.
+The project has one main app and 1 folder in wich you will find a expected architecture (3 layers: domain, gateway, and presentation).
+
+Each folder represents a layer on the Clean Architecture model, and have an only responsibility:
+- Domain: In here you have to put your business objects.
+- Gateway: To obtain and share data with another application.
+- Presentation: Determine how to present your business objects.
+
 ## Prerequisites
 - Have an account on Github
 - Have an account on CircleCI associated with your Github user.
@@ -14,15 +23,6 @@
 - Push changes in the repository that you've just created (do not forget of update this README).
 
 ## Continuous Integration
-This repository have a basic configuration to build your project on CircleCI. To start using it
-you need to turn on your project in [https://circleci.com/add-projects/gh/<User>](https://circleci.com/add-projects/gh/<User>)
-Edit the file `.circleci/config.yml` to customize your builds.
-
-## What will you find on this zygote?
-Here you'll find an Android template project with some basic configuration.
-The project has one main app and 1 folder in wich you will find a expected architecture (3 layers: domain, gateway, and presentation).
-
-Each folder represents a layer on the Clean Architecture model, and have an only responsibility:
-- Domain: In here you have to put your business objects.
-- Gateway: To obtain and share data with another application.
-- Presentation: Determine how to present your business objects.
+Currently, the script is configurated to run the unit test of its modules, and post the coverage
+result on CodeCov (only working for public repositories).
+To start using it you need to turn on your project in [https://circleci.com/add-projects/gh/<User>](https://circleci.com/add-projects/gh/<User>)

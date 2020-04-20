@@ -17,3 +17,6 @@ local.properties
 
 # MAC Files
 /**/.DS_Store
+
+# Jacoco files
+/**/jacoco.exec
