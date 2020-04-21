@@ -9,8 +9,6 @@ internal class JavaPlugin : ModulePlugin {
 
     companion object {
         private const val EXTENSION_ANDROID = "android"
-
-        private const val JVM_1_8 = "1.8"
     }
 
     override fun apply(target: Project) {
@@ -20,10 +18,6 @@ internal class JavaPlugin : ModulePlugin {
         androidExtension.compileOptions {
             sourceCompatibility = JavaVersion.VERSION_1_8
             targetCompatibility = JavaVersion.VERSION_1_8
-        }
-
-        target.tasks.withType(KotlinCompile::class.java).configureEach {
-            kotlinOptions { jvmTarget = JVM_1_8 }
         }
     }
 }

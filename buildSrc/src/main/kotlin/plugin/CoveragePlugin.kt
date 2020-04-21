@@ -74,6 +74,7 @@ internal class CoveragePlugin : ModulePlugin {
             )
             sourceDirectories.setFrom(SOURCE_DIR)
             additionalSourceDirs.setFrom(SOURCE_DIR)
+            group = COVERAGE
 
             reports.xml.isEnabled = true
         }

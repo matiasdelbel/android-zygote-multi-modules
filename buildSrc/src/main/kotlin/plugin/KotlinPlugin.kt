@@ -4,6 +4,7 @@ import com.android.build.gradle.BaseExtension
 import deps.Core
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.dependencies
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 internal class KotlinPlugin : ModulePlugin {
 
@@ -14,6 +15,8 @@ internal class KotlinPlugin : ModulePlugin {
         private const val IMPLEMENTATION = "implementation"
 
         private const val EXTENSION_ANDROID = "android"
+        private const val JVM_1_8 = "1.8"
+
         private val SOURCE_SETS = mapOf(
             "main" to "src/main/kotlin/",
             "test" to "src/test/kotlin/",
@@ -28,6 +31,7 @@ internal class KotlinPlugin : ModulePlugin {
         applyKotlinSourceSets(target)
 
         target.dependencies { add(IMPLEMENTATION, Core.stdlibJdk7) }
+        target.tasks.withType(KotlinCompile::class.java).configureEach { kotlinOptions { jvmTarget = JVM_1_8 } }
     }
 
     private fun applyKotlinSourceSets(target: Project) {
