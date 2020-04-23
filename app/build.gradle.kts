@@ -8,16 +8,13 @@ plugins {
 
 android {
 
+    // TODO - set up applicationId
     defaultConfig.applicationId = "com.delbel.zygote.testapp"
 
     viewBinding { isEnabled = true }
 }
 
 dependencies {
-    implementation(project(path = ":featureA:domain"))
-    implementation(project(path = ":featureA:gateway"))
-    implementation(project(path = ":featureA:presentation"))
-
     implementation(Injection.dagger)
     implementation(Injection.daggerSupport)
     kapt(Injection.daggerProcessor)
