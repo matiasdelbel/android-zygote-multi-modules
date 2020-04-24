@@ -18,9 +18,9 @@ internal class KotlinPlugin : ModulePlugin {
         private const val JVM_1_8 = "1.8"
 
         private val SOURCE_SETS = mapOf(
-            "main" to "src/main/kotlin/",
-            "test" to "src/test/kotlin/",
-            "androidTest" to "src/androidTest/kotlin/"
+            "main" to listOf("src/main/kotlin/", "src/main/kotlin-ext/"),
+            "test" to listOf("src/test/kotlin/", "src/test/mocks/"),
+            "androidTest" to listOf("src/test/androidTest/")
         )
     }
 
@@ -38,6 +38,8 @@ internal class KotlinPlugin : ModulePlugin {
         val androidExtension = target.extensions.getByName(EXTENSION_ANDROID)
         if (androidExtension !is BaseExtension) return
 
-        androidExtension.sourceSets { SOURCE_SETS.forEach { named(it.key) { java.srcDir(it.value) } } }
+        androidExtension.sourceSets {
+            SOURCE_SETS.forEach { (source, folders) -> named(source) { java.setSrcDirs(folders) } }
+        }
     }
 }

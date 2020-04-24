@@ -31,5 +31,5 @@ dependencies {
 
 sourceSets {
     val main by getting
-    main.java.srcDirs("src/main/kotlinX")
+    main.java.srcDirs("src/main/kotlin-ext")
 }
