@@ -10,6 +10,7 @@ class ProjectModulePlugin : Plugin<Project> {
         .appendNext(next = JavaPlugin())
         .appendNext(next = TestPlugin())
         .appendNext(next = CoveragePlugin())
+        .appendNext(next = InjectionPlugin())
 
     override fun apply(project: Project) = plugin.apply(project)
 }

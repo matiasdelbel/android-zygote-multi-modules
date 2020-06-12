@@ -1,9 +1,9 @@
 package deps
 
 object Injection {
+    const val plugin = "dagger.hilt.android.plugin"
+    const val hilt = "com.google.dagger:hilt-android:2.28-alpha"
+    const val hiltCompiler = "com.google.dagger:hilt-android-compiler:2.28-alpha"
 
-    const val dagger = "com.google.dagger:dagger:2.25.2"
-    const val daggerSupport = "com.google.dagger:dagger-android-support:2.25.2"
-    const val daggerProcessor = "com.google.dagger:dagger-android-processor:2.25.2"
-    const val daggerCompiler = "com.google.dagger:dagger-compiler:2.25.2"
+    const val viewModel = "androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha01"
 }

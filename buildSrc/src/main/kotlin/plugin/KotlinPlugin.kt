@@ -8,6 +8,28 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 internal class KotlinPlugin : ModulePlugin {
 
+    override fun apply(target: Project) {
+        target.plugins.apply(PLUGIN_KOTLIN_ANDROID)
+        target.plugins.apply(PLUGIN_KOTLIN_KAPT)
+
+        applyKotlinSourceSets(target)
+
+        target.dependencies {
+            add(IMPLEMENTATION, Core.stdlibJdk7)
+            add(IMPLEMENTATION, Core.coroutines)
+        }
+        target.tasks.withType(KotlinCompile::class.java).configureEach { kotlinOptions { jvmTarget = JVM_1_8 } }
+    }
+
+    private fun applyKotlinSourceSets(target: Project) {
+        val androidExtension = target.extensions.getByName(EXTENSION_ANDROID)
+        if (androidExtension !is BaseExtension) return
+
+        androidExtension.sourceSets {
+            SOURCE_SETS.forEach { (source, folders) -> named(source) { java.setSrcDirs(folders) } }
+        }
+    }
+
     companion object {
         private const val PLUGIN_KOTLIN_ANDROID = "kotlin-android"
         private const val PLUGIN_KOTLIN_KAPT = "kotlin-kapt"
@@ -22,24 +44,5 @@ internal class KotlinPlugin : ModulePlugin {
             "test" to listOf("src/test/kotlin/", "src/test/mocks/"),
             "androidTest" to listOf("src/test/androidTest/")
         )
-    }
-
-    override fun apply(target: Project) {
-        target.plugins.apply(PLUGIN_KOTLIN_ANDROID)
-        target.plugins.apply(PLUGIN_KOTLIN_KAPT)
-
-        applyKotlinSourceSets(target)
-
-        target.dependencies { add(IMPLEMENTATION, Core.stdlibJdk7) }
-        target.tasks.withType(KotlinCompile::class.java).configureEach { kotlinOptions { jvmTarget = JVM_1_8 } }
-    }
-
-    private fun applyKotlinSourceSets(target: Project) {
-        val androidExtension = target.extensions.getByName(EXTENSION_ANDROID)
-        if (androidExtension !is BaseExtension) return
-
-        androidExtension.sourceSets {
-            SOURCE_SETS.forEach { (source, folders) -> named(source) { java.setSrcDirs(folders) } }
-        }
     }
 }
