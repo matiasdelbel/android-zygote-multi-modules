@@ -4,13 +4,10 @@ plugins {
 }
 
 gradlePlugin {
-
     plugins {
-        val projectModulePlugin = "project-module-plugin"
-
-        register(projectModulePlugin) {
-            id = projectModulePlugin
-            implementationClass = "ProjectModulePlugin"
+        register("project-module-plugin") {
+            id = "project-module-plugin"
+            implementationClass = "com.delbel.ProjectModulePlugin"
         }
     }
 }
@@ -18,19 +15,27 @@ gradlePlugin {
 repositories {
     google()
     jcenter()
+
+    maven("https://plugins.gradle.org/m2/")
 }
 
 dependencies {
     compileOnly(gradleApi())
 
     implementation("com.android.tools.build:gradle:4.0.0")
+
     implementation(kotlin("gradle-plugin", "1.3.61"))
 
     implementation("org.jacoco:org.jacoco.core:0.8.5")
+
     implementation("com.google.dagger:hilt-android-gradle-plugin:2.28-alpha")
+
+    implementation("androidx.navigation:navigation-safe-args-gradle-plugin:2.3.0-rc01")
+
+    implementation("org.jlleitschuh.gradle:ktlint-gradle:9.2.1")
+    implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.10.0-RC1")
 }
 
 sourceSets {
-    val main by getting
-    main.java.srcDirs("src/main/kotlin-ext")
+    this["main"].java.srcDirs("src/main/kotlin-ext", "src/main/kotlin")
 }

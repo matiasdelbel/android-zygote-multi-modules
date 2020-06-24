@@ -1,4 +1,4 @@
-import deps.Presentation
+import com.delbel.Presentation
 
 plugins {
     id("com.android.application")

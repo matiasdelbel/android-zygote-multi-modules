@@ -1,26 +1,20 @@
-package plugin
+package com.delbel.plugin
 
 import com.android.build.gradle.*
 import com.android.build.gradle.api.BaseVariant
 import org.gradle.api.DomainObjectSet
 import org.gradle.api.Project
+import org.gradle.api.baseAndroidExtension
 import org.gradle.kotlin.dsl.create
 import org.gradle.kotlin.dsl.get
 import org.gradle.kotlin.dsl.register
 import org.gradle.testing.jacoco.plugins.JacocoPlugin
 import org.gradle.testing.jacoco.tasks.JacocoReport
+import kotlin.contracts.ExperimentalContracts
 
 internal class CoveragePlugin : ModulePlugin {
 
-    companion object {
-        private const val EXTENSION_ANDROID = "android"
-        private const val COVERAGE = "coverage"
-
-        private const val VERSION_DEBUG = "debug"
-
-        private const val SOURCE_DIR = "src/main/kotlin/"
-    }
-
+    @ExperimentalContracts
     override fun apply(target: Project) {
         target.extensions.create<CoverageExtension>(COVERAGE)
 
@@ -34,8 +28,10 @@ internal class CoveragePlugin : ModulePlugin {
 
         target.plugins.apply(JacocoPlugin::class.java)
         target.plugins.all {
-            if (this is LibraryPlugin) configureLibraryPlugin(target, coverageExtension.excludes)
-            else if (this is AppPlugin) configureAppPlugin(target, coverageExtension.excludes)
+            when (this) {
+                is LibraryPlugin -> configureLibraryPlugin(target, coverageExtension.excludes)
+                is AppPlugin -> configureAppPlugin(target, coverageExtension.excludes)
+            }
         }
     }
 
@@ -80,11 +76,17 @@ internal class CoveragePlugin : ModulePlugin {
         }
     }
 
+    @ExperimentalContracts
     private fun enableCoverageOnDebug(target: Project) {
-        val androidExtension = target.extensions.getByName(EXTENSION_ANDROID)
-        if (androidExtension !is BaseExtension) return
+        val androidExtension = target.baseAndroidExtension() ?: return
 
         androidExtension.buildTypes { getByName(VERSION_DEBUG) { isTestCoverageEnabled = true } }
+    }
+
+    companion object {
+        private const val COVERAGE = "coverage"
+        private const val VERSION_DEBUG = "debug"
+        private const val SOURCE_DIR = "src/main/kotlin/"
     }
 }
 
