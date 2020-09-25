@@ -5,8 +5,8 @@ plugins {
 
 gradlePlugin {
     plugins {
-        register("project-module-plugin") {
-            id = "project-module-plugin"
+        register("com.delbel.android.library") {
+            id = "com.delbel.android.library"
             implementationClass = "com.delbel.ProjectModulePlugin"
         }
     }
@@ -22,7 +22,7 @@ repositories {
 dependencies {
     compileOnly(gradleApi())
 
-    implementation("com.android.tools.build:gradle:4.0.0")
+    implementation("com.android.tools.build:gradle:4.0.1")
 
     implementation(kotlin("gradle-plugin", "1.3.61"))
 
@@ -30,7 +30,7 @@ dependencies {
 
     implementation("com.google.dagger:hilt-android-gradle-plugin:2.28-alpha")
 
-    implementation("androidx.navigation:navigation-safe-args-gradle-plugin:2.3.0-rc01")
+    implementation("androidx.navigation:navigation-safe-args-gradle-plugin:2.3.0")
 
     implementation("org.jlleitschuh.gradle:ktlint-gradle:9.2.1")
     implementation("io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.10.0-RC1")

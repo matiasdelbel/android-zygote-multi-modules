@@ -2,7 +2,7 @@ import com.delbel.Presentation
 
 plugins {
     id("com.android.application")
-    id("project-module-plugin")
+    id("com.delbel.android.library")
 }
 
 android {
