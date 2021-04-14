@@ -5,7 +5,6 @@ Template of an Android project implemented following Clean Architecture and Goog
 
 ## Set Up
 - Find and replace all the TODO in the project. They are related to the package id of the main module.
-- To add a new feature on the project, run the `module-creator.jar`. Below there is an explanation about how to use it.
 
 ## Continue Integration
 This project has configured [Circle CI](https://circleci.com/) as its continuous integration server.
@@ -28,17 +27,4 @@ The use cases specify how the different actors interact with your application.
 - **Presentation:** this layer is in charge of managing the way you render the domain logic to the user. Here live fragments and activities.
 - **Gateway:** or data. This layer is in charge of communication with other systems. Here you will find the repositories and sensor managers.
 
-
 ![Clean Architecture](images/architecture.png)
-
-
-## Feature Creation
-[module-creator](https://github.com/matiasdelbel/zygote-module-creation) tool is the best way of adding new features.
-A jar file has already been add to this repository. To use it, execute the following command in the **root** of the project:
-
-```
-java -jar module-creator.jar
-```
-
-This tool create three modules per feature: `domain`, `presentation` and `gateway`.Presentation and gateway
-depends on domain. It is also update your `settings.gradle.kts` to register those modules.

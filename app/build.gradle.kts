@@ -1,3 +1,4 @@
+import com.delbel.Navigation
 import com.delbel.Presentation
 
 plugins {
@@ -13,6 +14,9 @@ android {
 }
 
 dependencies {
+    implementation(Navigation.navigationFragment)
+    implementation(Navigation.navigationUi)
+
     implementation(Presentation.appCompat)
     implementation(Presentation.material)
 }

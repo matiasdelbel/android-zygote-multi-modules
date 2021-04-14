@@ -2,7 +2,7 @@ package com.delbel
 
 object Kotlin {
     const val stdlibJdk7 = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.4.10"
-    const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9"
+    const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.3"
 }
 
 object Injection {
@@ -14,8 +14,8 @@ object Injection {
 }
 
 object Navigation {
-    const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:2.3.0"
-    const val navigationUi = "androidx.navigation:navigation-ui-ktx:2.3.0"
+    const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:2.3.5"
+    const val navigationUi = "androidx.navigation:navigation-ui-ktx:2.3.5"
 }
 
 object Presentation {
