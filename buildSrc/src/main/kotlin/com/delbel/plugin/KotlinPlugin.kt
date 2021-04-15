@@ -1,12 +1,9 @@
 package com.delbel.plugin
 
 import com.android.build.gradle.BaseExtension
-import com.delbel.Kotlin
 import org.gradle.api.Project
 import org.gradle.api.applyPlugin
-import org.gradle.api.artifacts.dsl.implementation
 import org.gradle.api.baseAndroidExtension
-import org.gradle.kotlin.dsl.dependencies
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import kotlin.contracts.ExperimentalContracts
 
@@ -17,18 +14,18 @@ internal class KotlinPlugin : ModulePlugin {
         target.applyPlugin(PLUGIN_KOTLIN_ANDROID)
         target.applyPlugin(PLUGIN_KOTLIN_KAPT)
 
-        target.tasks.withType(KotlinCompile::class.java).configureEach { kotlinOptions { jvmTarget = JVM_1_8 } }
+        target
+            .tasks
+            .withType(KotlinCompile::class.java)
+            .configureEach { kotlinOptions { jvmTarget = JVM_1_8 } }
+
         applyKotlinSourceSets(androidExtension = target.baseAndroidExtension())
+    }
 
-        target.dependencies {
-            implementation(Kotlin.stdlibJdk7)
-            implementation(Kotlin.coroutines)
+    private fun applyKotlinSourceSets(androidExtension: BaseExtension?) = androidExtension
+        ?.sourceSets {
+            SOURCE_SETS.forEach { (source, folders) -> named(source) { java.setSrcDirs(folders) } }
         }
-    }
-
-    private fun applyKotlinSourceSets(androidExtension: BaseExtension?) = androidExtension?.sourceSets {
-        SOURCE_SETS.forEach { (source, folders) -> named(source) { java.setSrcDirs(folders) } }
-    }
 
     companion object {
         private const val PLUGIN_KOTLIN_ANDROID = "kotlin-android"

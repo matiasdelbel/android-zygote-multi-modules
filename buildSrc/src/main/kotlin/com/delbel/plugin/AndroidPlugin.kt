@@ -23,7 +23,7 @@ internal class AndroidPlugin : ModulePlugin {
     companion object {
         private const val SDK_COMPILE_VERSION = 29
         private const val SDK_TARGET_VERSION = SDK_COMPILE_VERSION
-        private const val SDK_MIN_VERSION = 15
+        private const val SDK_MIN_VERSION = 21
 
         private const val VERSION_CODE = 1
         private const val VERSION_NAME = "1.0.0"
